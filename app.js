@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TouchableOpacity, TextInput, Image } from 'react-native';
-
+import { Feather } from 'react-native-vector-icons'; 
 
 const imagem = Math.floor(Math.random() * 4 + 1)
 
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
 
   },
   containerSearch: {
-    flexDirection: "row",
+    flexDirection: "column",
     width: "90%",
     backgroundColor: "white",
     marginTop: 30,
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
 
   },
   imageBanner:{ 
-    width:'90%',
+    width:'40%',
     height:200,
     marginTop:15,
     borderRadius:10
@@ -96,8 +96,8 @@ const styles = StyleSheet.create({
 
   },
   textBanner:{
-fontSize:30,
-color:"white",
+fontSize:45,
+color:"black",
 marginTop:15,
 marginLeft:-180,
 fontWeight:"bold"
