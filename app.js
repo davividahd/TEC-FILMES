@@ -1,7 +1,7 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TouchableOpacity, TextInput, Image } from 'react-native';
-import { Feather } from 'react-native-vector-icons'; 
-
+mport { StyleSheet, Text, View, TextInput, Image, Flatlits } from 'react-native';
+import Cabecalho from './src/componentes/cabeçalho/index.js';
+import Pesquisa from './src/componentes/pesquisa/pesquisa.js';
+import DATA from './movies.js';
 const imagem = Math.floor(Math.random() * 4 + 1)
 
 
@@ -11,31 +11,23 @@ export default function App() {
 
 
   return (
+
     <View style={styles.container}>
-      <View style={styles.viewHerder}>
-        <TouchableOpacity>
 
-          <Feather style={{ marginLeft: -70 }} name='menu' size={36} color='#FFF' >
-        </Feather>
+     
+    <Cabecalho/>
 
-
-        </TouchableOpacity>
-        <Text style={styles.textHeader}> TEC FILMES </Text>
-      </View>
 
       <View style={styles.containerSearch}>
-        <TextInput style={styles.inputSearch} placeholder='Digite o filme que deseja buscar '>
+ 
+        <Pesquisa/>
 
-        </TextInput>
-
-        <Text style = {styles.textBanner}> Em cartaz   </Text>
-        <Image style = {styles.imageBanner} source={require(`./assets/a viagem de chiriho.jpg`)}>
-
-        </Image>
-
+        <Text style={styles.textBanner}> Em cartaz   </Text>
+        <Image style={styles.imageBanner} source={require(`./assets/a viagem de chiriho.jpg`)}></Image>
+    
+         
       </View>
     </View>
-
 
   );
 }
@@ -48,59 +40,24 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 
-  viewHerder: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    marginTop: 8,
-    marginLeft: 10
 
-  },
-
-  textHeader: {
-    fontSize: 25,
-    color: "white",
-    fontWeight: "bold",
-    marginRight: 75
-
-
-  },
-  containerSearch: {
-    flexDirection: "column",
-    width: "90%",
-    backgroundColor: "white",
-    marginTop: 30,
-    alignItems: "center",
-    borderRadius: 3
-
-
-
-  },
-  inputSearch: {
-    height: 35,
-    width: "100%",
-    marginLeft: 5
+ 
+  imageBanner: {
+    width: '40%',
+    height: '100%',
+    marginTop: 15,
+    borderRadius: 10
 
 
 
 
   },
-  imageBanner:{ 
-    width:'40%',
-    height:200,
-    marginTop:15,
-    borderRadius:10
-   
-
-
-
-  },
-  textBanner:{
-fontSize:45,
-color:"black",
-marginTop:15,
-marginLeft:-180,
-fontWeight:"bold"
+  textBanner: {
+    fontSize: 45,
+    color: "black",
+    marginTop: 15,
+    marginLeft: -8,
+    fontWeight: "bold"
 
 
 
