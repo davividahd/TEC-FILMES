@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
   },
   textBanner: {
     fontSize: 45,
-    color: "black",
+    color: "white",
     marginTop: 15,
     marginLeft: -8,
     fontWeight: "bold"
