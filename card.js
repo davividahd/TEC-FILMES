@@ -1,14 +1,12 @@
-import { Image , Text } from 'react-native';
-import styles from './style';
-   export default function Card({nome , notaRotten, imagem}) {    
-    return (
- < Image style ={styles.imagecard}  ({uri: imagem}) >
+import { Image, Text, View } from 'react-native';
+import styles from './stylecard.js';
 
-  </Image>
-
-  <Text style={styles.textcard}>{nome}</Text>,
-  <Text style={styles.textcard}>{notaRotten}</Text>
-
-);
-   }
+export default function Card({ nome, notaRotten, imagem }) {
+  return (
+    <View style={styles.cardContainer}>
+      <Image style={styles.imagecard} source={{ uri:(imagem) }} />
+      <Text style={styles.textcard}>{nome}</Text>
+      <Text style={styles.textcard}>{notaRotten}</Text>
+    </View>
+  );
 }
