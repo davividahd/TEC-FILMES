@@ -9,7 +9,15 @@ const styles = StyleSheet.create({
         marginTop: 15,
         marginLeft: -8,
         fontWeight: "bold"
+    },
     
+    imagebanner: {
+        width: 400,
+        height: 200,
+        marginTop: 10,
+        borderRadius: 20,
+        marginLeft: -8
+    },
 }
- });
+ );
 export default styles;
