@@ -1,15 +1,33 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-  
-    imagecard: {
-        width: '30%',
-        height: '40%',
-        marginTop: 210,
-        borderRadius: 10,
-    
-    }
 
     
-});
-export default styles;
+    imagecard: {
+
+        padding: 10, 
+        marginVertical: 8,
+        borderRadius: 8,
+        shadowRadius: 4,
+        width: 90, 
+        height: 120,
+        resizeMode: 'cover'
+    },
+
+    textcard:{
+        textAlign: 'center',
+        fontSize: 15,
+        color: "white",
+        fontWeight: "bold",
+        width: 100,
+
+
+    },
+
+    textnota: { 
+        textAlign: 'center',
+        bordertop: 8,
+        fontSize: 10,
+        color: "yellow",
+        fontWeight: "bold",
+        width: 100,
