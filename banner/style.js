@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
         fontSize: 45,
         color: "white",
         marginTop: 15,
-        marginLeft: -8,
+
         fontWeight: "bold"
     },
     
@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
         height: 200,
         marginTop: 10,
         borderRadius: 20,
-        marginLeft: -8
+
     },
 }
  );
