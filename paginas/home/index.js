@@ -4,12 +4,13 @@ import Pesquisa from '../../componentes/pesquisa/pesquisa.js';
 import Banner from '../../componentes/banner/banner.js';
 import Card from '../../componentes/card/card.js';
 import DATA from '../../../DATA/movies.js';
-
+import Rotas from '../rotas/index.js';
 const imagem = Math.floor(Math.random() * 4 + 1);
 
 export default function HOME() {
   return (
     <View style={styles.container}>
+     {/* <Rotas/>   */}
       <Cabecalho />
 
       
