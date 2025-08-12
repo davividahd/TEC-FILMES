@@ -15,7 +15,7 @@ export default function App() {
 
 
   return (
-<Rotas/>
+<HOME/>
     
 
  
@@ -23,11 +23,6 @@ export default function App() {
 
   );
 }
-
-
-
-
-
 
 
 
