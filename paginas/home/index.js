@@ -5,36 +5,69 @@ import Banner from '../../componentes/banner/banner.js';
 import Card from '../../componentes/card/card.js';
 import DATA from '../../../DATA/movies.js';
 import Rotas from '../rotas/index.js';
+import { useState, useEffect } from 'react';
 const imagem = Math.floor(Math.random() * 4 + 1);
 
 export default function HOME() {
+
+  const [movies, setMovies] = useState([])
+  useEffect(() => {
+    async function listafilmes() {
+
+      const url = 'https://api.themoviedb.org/3/movie/top_rated?language=pt-br-US&page=1';
+      const options = {
+        method: 'GET',
+        headers: {
+          accept: 'application/json',
+          Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiOGYyODU0ODEzY2Q1NThlZmE4MTM0MDQ0ODhiOTA4MSIsIm5iZiI6MTc1NTAyMTY4OS45Niwic3ViIjoiNjg5YjgxNzlmMjMzNzlhZDFmMWEzNDMzIiwic2NvcGVzIjpbImFwaV9yZWFkIl0sInZlcnNpb24iOjF9.VQQqYp9s136HclZ_DmHd0FkScGY55Ga-yvcs_qZlgBA'
+        
+        }
+      };
+
+      fetch(url, options)
+        .then(res => res.json())
+        .then(json => console.log(json))
+        .catch(err => console.error(err));
+
+      const response = await fetch(url, options)
+      const movis = response.json();
+      console.log(movis)
+      setMovies(movis.results)
+
+
+      
+    }
+    listafilmes()
+  });
+
   return (
     <View style={styles.container}>
-     {/* <Rotas/>   */}
+      {/* <Rotas/>   */}
       <Cabecalho />
 
-      
-      
-          <Pesquisa />
-          <Banner />
 
-          <View style={{ width: '90%' }}>
-            <FlatList
-              data={DATA}
-              horizontal={true}
-              showsHorizontalScrollIndicator={true}
-              keyExtractor={(item) => item.id}
-              renderItem={({ item }) => (
-                <Card
-                  titulo={item.nome}
-                  nota={item.notaRotten}
-                  imagem={item.imagem}
-                />
-              )}
+
+      <Pesquisa />
+      <Banner />
+
+      <View style={{ width: '90%' }}>
+        <FlatList
+          data={movis}
+          horizontal={true}
+          showsHorizontalScrollIndicator={true}
+          keyExtractor={(item) => item.id}
+          renderItem={({ item }) => (
+            <Card
+              titulo={item.title}
+              nota={item.vote_average}
+              imagem={item.poster_path
+ }
             />
-          </View>
-        
-    
+          )}
+        />
+      </View>
+
+
     </View>
   );
 }
