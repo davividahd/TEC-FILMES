@@ -14,7 +14,7 @@ export default function HOME() {
   useEffect(() => {
     async function listafilmes() {
 
-      const url = 'https://api.themoviedb.org/3/movie/top_rated?language=pt-br-US&page=1';
+      const url = 'https://api.themoviedb.org/3/movie/top_rated?language=pt-BR&page=1';
       const options = {
         method: 'GET',
         headers: {
@@ -24,13 +24,10 @@ export default function HOME() {
         }
       };
 
-      fetch(url, options)
-        .then(res => res.json())
-        .then(json => console.log(json))
-        .catch(err => console.error(err));
+  
 
       const response = await fetch(url, options)
-      const movis = response.json();
+      const movis = await response.json();
       console.log(movis)
       setMovies(movis.results)
 
@@ -38,7 +35,7 @@ export default function HOME() {
       
     }
     listafilmes()
-  });
+  },[]);
 
   return (
     <View style={styles.container}>
@@ -52,7 +49,7 @@ export default function HOME() {
 
       <View style={{ width: '90%' }}>
         <FlatList
-          data={movis}
+          data={movies}
           horizontal={true}
           showsHorizontalScrollIndicator={true}
           keyExtractor={(item) => item.id}
@@ -60,8 +57,7 @@ export default function HOME() {
             <Card
               titulo={item.title}
               nota={item.vote_average}
-              imagem={item.poster_path
- }
+              imagem={item.poster_path}
             />
           )}
         />
