@@ -4,7 +4,7 @@ export default function Banner() {
     return (
 <View>
     <Text style={styles.textBanner}> Em cartaz   </Text>
-    <Image style={styles.imagebanner} source= {require("../../../assets/img/bannerviagem.jpg" )}   />
+    <Image style={styles.imagebanner} source= {require("../../../assets/bannerviagem.jpg" )}   />
 
 
 </View>
