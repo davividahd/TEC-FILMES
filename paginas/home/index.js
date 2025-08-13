@@ -51,7 +51,7 @@ export default function HOME() {
         <FlatList
           data={movies}
           horizontal={true}
-          showsHorizontalScrollIndicator={true}
+          showsHorizontalScrollIndicator={false}
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
             <Card
