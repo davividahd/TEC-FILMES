@@ -31,3 +31,7 @@ const styles = StyleSheet.create({
         color: "yellow",
         fontWeight: "bold",
         width: 100,
+    },
+}
+ );
+ export default styles;
