@@ -6,8 +6,8 @@ export default function Detalhes() {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
-      <Image source={{ uri: Rota.params.poster_path }} style={{ width: 250, height: 400 }} />
-      <Text  styles={styles.titulo} >{Rota.params.title}</Text>
+      <Image  style={styles.img} source={{ uri: Rota.params.poster_path }}  />
+      <Text  style={styles.titulo} >{Rota.params.title}</Text>
       <Text style = {styles.nota} > Nota: {Rota.params.vote_average}</Text>
     </View>
   );
@@ -19,18 +19,25 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#141a29',
     alignItems: 'center',
-  
+
   },
 
 
   titulo: {
-    fontSize: 40,
+    fontSize: 22,
    color: 'white',
    
    
   },
   nota: {
-    fontSize: 16,
-    color: 'gray',
+    fontSize: 22,
+    color: 'yellow',
+  },
+
+
+  img: {
+    width: 250,
+    height: 400,
+    marginTop: 20,
   },
 });
