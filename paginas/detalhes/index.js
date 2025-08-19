@@ -1,13 +1,14 @@
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image  } from 'react-native';
 import { useRoute } from '@react-navigation/native';
-
+import {useNavigation} from '@react-navigation/native';
 export default function Detalhes() {
   const Rota = useRoute();
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
-      <Image source={{ uri: Rota.params.imagem }} style={{ width: 250, height: 400 }} />
-      <Text  styles={styles.titulo} >{Rota.params.titulo}</Text>
-      <Text style = {styles.nota} > Nota: {Rota.params.nota}</Text>
+      <Image source={{ uri: Rota.params.poster_path }} style={{ width: 250, height: 400 }} />
+      <Text  styles={styles.titulo} >{Rota.params.title}</Text>
+      <Text style = {styles.nota} > Nota: {Rota.params.vote_average}</Text>
     </View>
   );
 }
