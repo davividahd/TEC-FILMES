@@ -1,4 +1,5 @@
 import { StyleSheet, Text, View, TextInput, Image, FlatList } from 'react-native';
+import Rotas from './src/paginas/rotas/index.js';
 import Cabecalho from './src/componentes/cabeçalho/index.js';
 import Pesquisa from './src/componentes/pesquisa/pesquisa.js';
 import Banner from './src/componentes/banner/banner.js';
@@ -15,14 +16,15 @@ export default function App() {
 
 
   return (
-<HOME/>
-    
-
+<Rotas />
  
 
 
   );
 }
+
+
+
 
 
 
