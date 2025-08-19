@@ -20,11 +20,11 @@ export default function HOME() {
         headers: {
           accept: 'application/json',
           Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiOGYyODU0ODEzY2Q1NThlZmE4MTM0MDQ0ODhiOTA4MSIsIm5iZiI6MTc1NTAyMTY4OS45Niwic3ViIjoiNjg5YjgxNzlmMjMzNzlhZDFmMWEzNDMzIiwic2NvcGVzIjpbImFwaV9yZWFkIl0sInZlcnNpb24iOjF9.VQQqYp9s136HclZ_DmHd0FkScGY55Ga-yvcs_qZlgBA'
-        
+
         }
       };
 
-  
+
 
       const response = await fetch(url, options)
       const movis = await response.json();
@@ -32,10 +32,41 @@ export default function HOME() {
       setMovies(movis.results)
 
 
-      
+
     }
     listafilmes()
-  },[]);
+  }, []);
+
+
+
+  const [Series, setSeries] = useState([])
+  useEffect(() => {
+    async function listafilmes() {
+
+      const url ='https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=1';
+      const options = {
+        method: 'GET',
+        headers: {
+          accept: 'application/json',
+          Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiOGYyODU0ODEzY2Q1NThlZmE4MTM0MDQ0ODhiOTA4MSIsIm5iZiI6MTc1NTAyMTY4OS45Niwic3ViIjoiNjg5YjgxNzlmMjMzNzlhZDFmMWEzNDMzIiwic2NvcGVzIjpbImFwaV9yZWFkIl0sInZlcnNpb24iOjF9.VQQqYp9s136HclZ_DmHd0FkScGY55Ga-yvcs_qZlgBA'
+
+        }
+      };
+
+
+
+      const response = await fetch(url, options)
+      const seri = await response.json();
+      console.log(seri)
+      setSeries(seri.results)
+
+
+
+    }
+    listafilmes()
+  }, []);
+
+
 
   return (
     <View style={styles.container}>
@@ -64,9 +95,31 @@ export default function HOME() {
       </View>
 
 
+
+
+
+      <View style={{ width: '90%' }}>
+        <FlatList
+          data={Series}
+          horizontal={true}
+          showsHorizontalScrollIndicator={false}
+          keyExtractor={(item) => item.id}
+          renderItem={({ item }) => (
+            <Card
+              titulo={item.name}
+              nota={item.vote_average}
+              imagem={item.poster_path}
+            />
+          )}
+        />
+      </View>
+
+
     </View>
+
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {
